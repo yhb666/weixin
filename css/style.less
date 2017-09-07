@@ -140,7 +140,7 @@ html {
     margin-left: 8px;
     margin-right: 10px;
 }
-.right-txt {
+.right-txt,.right-tx {
     float: right;
     max-width: 65%;
     height: auto;
@@ -151,7 +151,7 @@ html {
     word-wrap: break-word;
     position: relative;
 }
-.left-txt {
+.left-txt,.left-tx {
     float: left;
     max-width: 65%;
     height: auto;
@@ -165,7 +165,6 @@ html {
 .flow-right {
     margin-top: 25px;
     padding-left: 46px;
-    
     position: relative;
 }
 .img-box {
@@ -243,4 +242,21 @@ html {
         display: block;
     }
 }
-
+.div-right{
+    max-width: 10px;
+    max-height: 15px;
+    vertical-align: middle;
+    position: absolute;
+    left: 200px;
+    top: 13px;
+    img{
+        max-width: 10px;
+        max-height: 15px;
+        transform: rotate(180deg);        
+        float: right;
+       display: none;
+    }
+    .active{
+        display: block;
+    }
+}

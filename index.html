@@ -10,24 +10,24 @@
 </head>
 
 <body>
-
     <div id="js-header" class="header">
         <a class="arrow-return" href="javascript:;"><img src="img/1_03.png" /></a>
         <span class="header-title">1505班(9)</span>
         <a class="group-header" href="javascript:;"><img src="img/1_05.png" /></a>
     </div>
     <div id="js-container" class="container">
-
-        <div class="flow-right clearfix">
+        <!-- 右文字 -->
+        <!-- <div class="flow-right clearfix">
             <div class="right-header">
                 <div class="img-box">
                     <img src="img/01_07.png" class="pic" />
                 </div>
             </div>
             <div class="san1"></div>
-            <div class="right-txt clearfix">心如平原走马</div>
-        </div>
-        <div class="flow-left clearfix">
+            <div class="right-txt clearfix">1111 </div>
+        </div> -->
+        <!-- 左文字 -->
+        <!-- <div class="flow-left clearfix">
             <div class="left-header">
                 <div class="img-box">
                     <img src="img/234.png" class="pic" />
@@ -35,44 +35,25 @@
             </div>
             <div class="san"></div>
             <div class="left-txt clearfix">心如平原走马,易放难收！</div>
-        </div>
-        <div class="flow-left clearfix">
-            <div class="left-header">
-                <div class="img-box">
-                    <img src="img/021_03.png" class="pic" />
-                </div>
-            </div>
-            <div class="san"></div>
-            <div class="left-txt clearfix">植心与内心的修养，无需提醒的自觉，为别人着想的善良，以约束为前提的自由！</div>
-        </div>
-
-        <!--<div class="flow-right clearfix">
-				<div class="right-header">
-					<div class="img-box">
-						<img src="img/01_07.png" class="pic" />
-					</div>
-				</div>
-				<div class="san1"></div>
-				<div class="right-txt clearfix p12" id="txt-a">
-					<audio src="1.mp3"></audio>
-				</div>
-			</div>-->
-        <div class="flow-left clearfix">
+        </div> -->
+        <!-- 左图片 -->
+        <!-- <div class="flow-left clearfix">
             <div class="left-header">
                 <div class="img-box">
                     <img src="img/123.png" class="pic" />
                 </div>
             </div>
             <div class="img1 clearfix"><img src="img/8_03.jpg" /></div>
-        </div>
-        <div class="flow-left clearfix">
+        </div> -->
+        <!-- 左语音 -->
+        <!-- <div class="flow-left clearfix">
             <div class="left-header">
                 <div class="img-box">
                     <img src="img/021_03.png" class="pic" />
                 </div>
             </div>
             <div class="san"></div>
-            <div class="left-txt clearfix p12  con div-img1" id="txt-a">
+            <div class="left-tx clearfix p12  con div-img1" id="txt-a">
                 <div class="div-img " id="div-img1">
                     <img class="active" src="img/au3.png" />
                     <img src="img/au1.png" />
@@ -80,26 +61,26 @@
                 </div>
                 <audio src="1.mp3"></audio>
             </div>
-        </div>
-        <div class="flow-left clearfix">
-            <div class="left-header">
+        </div> -->
+        <!-- 右语音 -->
+        <!-- <div class="flow-right clearfix">
+            <div class="right-header">
                 <div class="img-box">
-                    <img src="img/021_03.png" class="pic" />
+                    <img src="img/01_07.png" class="pic" />
                 </div>
             </div>
-            <div class="san"></div>
-            <div class="left-txt clearfix p12  con  div-img1">
-                <div class="div-img " id="div-img1">
+            <div class="san1"></div>
+            <div class="right-txt right-tx clearfix p12" id="txt-a">
+                <div class="div-img div-right" id="div-img1">
                     <img class="active" src="img/au3.png" />
                     <img src="img/au1.png" />
                     <img src="img/au2.png" />
                 </div>
-                <audio src="test.mp3"></audio>
+                <audio src="1.mp3"></audio>
             </div>
-        </div>
+        </div> -->
 
     </div>
-
     <div id="js-footer" class="footer">
         <a href="javascript:;" class="check-key"><img src="img/222_10.png" /></a>
         <div class="check-main">
@@ -109,84 +90,182 @@
         <a href="javascript:;" class="check-smile"><img src="img/222_12.png" /></a>
         <a href="javascript:;" class="check-plus"><img src="img/222_14.png" /></a>
     </div>
+    <script src="js/jquery-1.7.2.min.js"></script>
     <script>
-        var p12 = document.getElementsByClassName("p12")[0];
-        var audio = document.getElementsByTagName("audio");
-        var check1 = document.getElementsByClassName("check-main")[0];
-        var input1 = document.getElementsByClassName("input-show")[0];
-        var span1 = document.getElementsByClassName("check-text")[0];
-        var a1 = document.getElementsByClassName("check-key")[0];
-        var con = document.getElementsByClassName("con");
-        var flag = true;
-        var speed = 0;
-        var num = 0;
-        var timer = "";
-        for (var i = 0; i < con.length; i++) {
-            con[i].onclick = function() {
-                var a = this.children[1];
-                var img1 = this.children[0];
-                var imgs = img1.children;
-                if (flag == false) {
-                    a.pause();
-                    clearInterval(timer);
-                    for (var j = 0; j < imgs.length; j++) {
-                        imgs[j].className = "";
-                    }
-                    imgs[0].className = "active";
-                    flag = true;
-                    console.log("暂停");
-                } else {
-                    // console.log(this.children[1]);
-                    for (var i = 0; i < con.length; i++) {
-                        audio[i].pause();
-                    }
-                    timer = setInterval(function() {
-                        num++;
-                        if (num > imgs.length - 1) {
-                            num = 0;
-                        }
+        $(function() {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/communication",
+                dataType: "json",
+                success: function(data) {
+                    // console.log(that.renderData)
+                    data.end == "0" ? renderTemplate(data.posts) : "";
+                }
+            });
+        });
+
+        function renderTemplate(renderData) {
+            var html = "";
+            for (var i = 0; i < renderData.length; i++) {
+                data = renderData[i];
+                // console.log(data.type)
+                switch (data.type) {
+
+                    case "leftText":
+                        html += [' <div class="flow-left clearfix">',
+                            '            <div class="left-header">',
+                            '                <div class="img-box">',
+                            '                    <img src="' + data.headImage + '" class="pic" />',
+                            '                </div>',
+                            '            </div>',
+                            '            <div class="san"></div>',
+                            '            <div class="left-txt clearfix">' + data.content + '</div>',
+                            '        </div>'
+                        ].join("");
+                        break;
+                    case "leftSound":
+                        html += ['<div class="flow-left clearfix">',
+                            '            <div class="left-header">',
+                            '                <div class="img-box">',
+                            '                    <img src=" ' + data.headImage + '" class="pic" />',
+                            '                </div>',
+                            '            </div>',
+                            '            <div class="san"></div>',
+                            '            <div class="left-tx clearfix p12  con div-img1" id="txt-a">',
+                            '                <div class="div-img " id="div-img1">',
+                            '                    <img class="active" src="img/au3.png" />',
+                            '                    <img src="img/au1.png" />',
+                            '                    <img src="img/au2.png" />',
+                            '                </div>',
+                            '                <audio src="' + data.sound.url + '"></audio>',
+                            '            </div>',
+                            '        </div>'
+                        ].join("");
+                        break;
+                    case "rightText":
+                        html += ['<div class="flow-right clearfix">',
+                            '            <div class="right-header">',
+                            '                <div class="img-box">',
+                            '                    <img src="' + data.headImage + '" class="pic" />',
+                            '                </div>',
+                            '            </div>',
+                            '            <div class="san1"></div>',
+                            '            <div class="right-txt clearfix">' + data.content + ' </div>',
+                            '        </div>'
+                        ].join("");
+                        break;
+                    case "rightSound":
+                        html += ['<div class="flow-right clearfix">',
+                            '            <div class="right-header">',
+                            '                <div class="img-box">',
+                            '                    <img src=" ' + data.headImage + '" class="pic" />',
+                            '                </div>',
+                            '            </div>',
+                            '            <div class="san1"></div>',
+                            '            <div class="right-txt right-tx con clearfix p12" id="txt-a">',
+                            '                <div class="div-img div-right" id="div-img1">',
+                            '                    <img class="active" src="img/au3.png" />',
+                            '                    <img src="img/au1.png" />',
+                            '                    <img src="img/au2.png" />',
+                            '                </div>',
+                            '                <audio src="' + data.sound.url + '"></audio>',
+                            '            </div>',
+                            '        </div>'
+                        ].join("");
+                        break;
+                    case "leftImage":
+                        html += ['<div class="flow-left clearfix">',
+                            '            <div class="left-header">',
+                            '                <div class="img-box">',
+                            '                    <img src="' + data.headImage + '" class="pic" />',
+                            '                </div>',
+                            '            </div>',
+                            '            <div class="img1 clearfix"><img src="' + data.imageArray.turl + '" /></div>',
+                            '        </div>'
+                        ].join("");
+                        break;
+                }
+            }
+            $("#js-container").append(html);
+            var p12 = document.getElementsByClassName("p12")[0];
+            var audio = document.getElementsByTagName("audio");
+            var check1 = document.getElementsByClassName("check-main")[0];
+            var span1 = document.getElementsByClassName("check-text")[0];
+            var input1 = document.getElementsByClassName("input-show")[0];
+            var a1 = document.getElementsByClassName("check-key")[0];
+            var flag = true;
+            var span1 = document.getElementsByClassName("check-text")[0];
+            var input1 = document.getElementsByClassName("input-show")[0];
+            var con = document.getElementsByClassName("con");
+            var orign = document.getElementsByClassName("div-img");
+            var flag = true;
+            var speed = 0;
+            var num = 0;
+            var timer = "";
+            var renderData = "";
+            var that = this;
+            for (var i = 0; i < con.length; i++) {
+                con[i].onclick = function() {
+                    var a = this.children[1];
+                    var img1 = this.children[0];
+                    var imgs = img1.children;
+                    if (flag == false) {
                         for (var j = 0; j < imgs.length; j++) {
                             imgs[j].className = "";
                         }
                         imgs[num].className = "active";
+                        a.pause();
+                        clearInterval(timer);
+                        for (var j = 0; j < imgs.length; j++) {
+                            imgs[j].className = "";
+                        }
+                        imgs[0].className = "active";
+                        flag = true;
+                        console.log("暂停");
+                    } else {
+                        for (var i = 0; i < con.length; i++) {
+                            audio[i].pause();
+                        }
+                        timer = setInterval(function() {
+                            if (a.ended) {
+                                clearInterval(timer)
+                                for (var j = 0; j < imgs.length; j++) {
 
-                    }, 500)
-                    a.play();
-                    a.currentTime = 0;
-                    flag = false;
-                    console.log("播放")
+                                    imgs[j].className = "";
+                                }
+                                imgs[num].className = "active";
+                            }
+                            num++;
+                            if (num > imgs.length - 1) {
+                                num = 0;
+                            }
+
+                            for (var j = 0; j < imgs.length; j++) {
+
+                                imgs[j].className = "";
+                            }
+                            imgs[num].className = "active";
+
+                        }, 500);
+                        a.play();
+                        a.currentTime = 0;
+                        flag = false;
+                        console.log("播放")
+                    }
                 }
             }
-
-        }
-
-
-
-
-
-        a1.onclick = function() {
-            if (flag == false) {
-                input1.style.display = "block";
-                span1.style.display = "none";
-                flag = true;
-            } else {
-                input1.style.display = "none";
-                span1.style.display = "block";
-                flag = false;
+            a1.onclick = function() {
+                if (flag == false) {
+                    input1.style.display = "block";
+                    span1.style.display = "none";
+                    flag = true;
+                } else {
+                    input1.style.display = "none";
+                    span1.style.display = "block";
+                    flag = false;
+                }
             }
         }
-
-        // function move() {
-        //     if (speed >= img1.length - 1) {
-        //         speed = 0;
-        //     } else {
-        //         speed++
-        //     }
-        //     for (var j = 0; j < img1.length; j++) {
-        //         img1[j].className = '';
-        //     }
-        //     img1[speed].className = 'active';
-        // }
     </script>
 </body>
 <ml>
